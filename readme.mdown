@@ -21,3 +21,4 @@ Quick Example:
 
 
 ```
+[![Build Status](https://secure.travis-ci.org/aporat/Application_MultiDb.png)](http://travis-ci.org/aporat/Application_MultiDb)
