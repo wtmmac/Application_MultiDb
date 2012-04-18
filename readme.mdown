@@ -1,0 +1,23 @@
+README
+======
+
+Application_MultiDb component adds support for multiple master and slave databases in a zend framework application.
+
+* Relies on Zend_Application_Resource_Multidb
+* Supports retrieval of write only, read only or read write database connections 
+
+The project requires:
+==============================
+
+* PHP >= 5.2.1
+* Zend Framework 1.11+
+
+
+Quick Example:
+==============================
+
+
+```php
+
+
+```
