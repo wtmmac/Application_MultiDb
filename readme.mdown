@@ -19,5 +19,22 @@ Quick Example:
 
 ```php
 
+$dbOptions = array(
+	'db_master1' => array('adapter' => 'pdo_mysql', 'dbname' => 'db1', 'password' => 'XXXX', 'username' => 'webuser', 'write' => 'true', 'read' => 'true'),
+	'db_master2' => array('adapter' => 'pdo_mysql', 'dbname' => 'db2', 'password' => 'XXXX', 'username' => 'webuser', 'write' => 'true', 'read' => 'true'),
+	'db_slave1' => array('adapter' => 'pdo_pgsql', 'dbname' => 'db3', 'password' => 'notthatpublic', 'username' => 'dba', 'write' => 'false', 'read' => 'true')
+);
+
+
+$multidb_resource = new Zend_Application_Resource_Multidb(array());
+$multidb_resource->setBootstrap($this->bootstrap);
+$multidb_resource->setOptions($this->_dbOptions);
+$res = $multidb_resource->init();
+        
+        
+$multidb = Application_MultiDb::getInstance();
+$multidb->setMultiDbResource($multidb_resource);
+
+$read_adapter = $multidb->getRandomReadOnlyAdapter();
 
 ```
