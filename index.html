@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Application_MultiDb : Zend framework component to work with multiple mysql master and slave database connections" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Application_MultiDb</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/aporat/Application_MultiDb">Fork Me on GitHub</a>
+
+          <h1 id="project_title">Application_MultiDb</h1>
+          <h2 id="project_tagline">Zend framework component to work with multiple mysql master and slave database connections</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/aporat/Application_MultiDb/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/aporat/Application_MultiDb/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>README</h1>
+
+<p>Application_MultiDb component adds support for multiple master and slave databases in a zend framework application.</p>
+
+<ul>
+<li>Relies on Zend_Application_Resource_Multidb</li>
+<li>Supports retrieval of write only, read only or read write database connections </li>
+</ul><h1>The project requires:</h1>
+
+<ul>
+<li>PHP &gt;= 5.2.1</li>
+<li>Zend Framework 1.11+</li>
+</ul><h1>Quick Example:</h1>
+
+<div class="highlight">
+<pre>
+<span class="x">$dbOptions = array(</span>
+<span class="x">    'db_master1' =&gt; array('adapter' =&gt; 'pdo_mysql', 'dbname' =&gt; 'db1', 'password' =&gt; 'XXXX', 'username' =&gt; 'webuser', 'write' =&gt; 'true', 'read' =&gt; 'true'),</span>
+<span class="x">    'db_master2' =&gt; array('adapter' =&gt; 'pdo_mysql', 'dbname' =&gt; 'db2', 'password' =&gt; 'XXXX', 'username' =&gt; 'webuser', 'write' =&gt; 'true', 'read' =&gt; 'true'),</span>
+<span class="x">    'db_slave1' =&gt; array('adapter' =&gt; 'pdo_pgsql', 'dbname' =&gt; 'db3', 'password' =&gt; 'notthatpublic', 'username' =&gt; 'dba', 'write' =&gt; 'false', 'read' =&gt; 'true')</span>
+<span class="x">);</span>
+
+
+<span class="x">$multidb_resource = new Zend_Application_Resource_Multidb(array());</span>
+<span class="x">$multidb_resource-&gt;setBootstrap($this-&gt;bootstrap);</span>
+<span class="x">$multidb_resource-&gt;setOptions($this-&gt;_dbOptions);</span>
+<span class="x">$res = $multidb_resource-&gt;init();</span>
+
+
+<span class="x">$multidb = Application_MultiDb::getInstance();</span>
+<span class="x">$multidb-&gt;setMultiDbResource($multidb_resource);</span>
+
+<span class="x">$read_adapter = $multidb-&gt;getRandomReadOnlyAdapter();</span>
+
+</pre>
+</div>
+
+
+<p><a href="http://travis-ci.org/aporat/Application_MultiDb"><img src="https://secure.travis-ci.org/aporat/Application_MultiDb.png" alt="Build Status"></a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Application_MultiDb maintained by <a href="https://github.com/aporat">aporat</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
