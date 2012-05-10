@@ -16,9 +16,8 @@ The project requires:
 Quick Example:
 ==============================
 
-
 ```php
-
+<?php
 $dbOptions = array(
 	'db_master1' => array('adapter' => 'pdo_mysql', 'dbname' => 'db1', 'password' => 'XXXX', 'username' => 'webuser', 'write' => 'true', 'read' => 'true'),
 	'db_master2' => array('adapter' => 'pdo_mysql', 'dbname' => 'db2', 'password' => 'XXXX', 'username' => 'webuser', 'write' => 'true', 'read' => 'true'),
@@ -36,6 +35,6 @@ $multidb = Application_MultiDb::getInstance();
 $multidb->setMultiDbResource($multidb_resource);
 
 $read_adapter = $multidb->getRandomReadOnlyAdapter();
-
+?>
 ```
 [![Build Status](https://secure.travis-ci.org/aporat/Application_MultiDb.png)](http://travis-ci.org/aporat/Application_MultiDb)
